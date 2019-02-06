@@ -10,7 +10,6 @@
 		3DA2D973220B71D300D8EA35 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DA2D972220B71D300D8EA35 /* AppDelegate.swift */; };
 		3DA2D975220B71D300D8EA35 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DA2D974220B71D300D8EA35 /* ViewController.swift */; };
 		3DA2D978220B71D300D8EA35 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3DA2D976220B71D300D8EA35 /* Main.storyboard */; };
-		3DA2D97B220B71D300D8EA35 /* VoiceRecorder.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 3DA2D979220B71D300D8EA35 /* VoiceRecorder.xcdatamodeld */; };
 		3DA2D97D220B71D400D8EA35 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3DA2D97C220B71D400D8EA35 /* Assets.xcassets */; };
 		3DA2D980220B71D400D8EA35 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3DA2D97E220B71D400D8EA35 /* LaunchScreen.storyboard */; };
 		3DA2D988220B8FF600D8EA35 /* FileHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DA2D987220B8FF600D8EA35 /* FileHelper.swift */; };
@@ -21,7 +20,6 @@
 		3DA2D972220B71D300D8EA35 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3DA2D974220B71D300D8EA35 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		3DA2D977220B71D300D8EA35 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		3DA2D97A220B71D300D8EA35 /* VoiceRecorder.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = VoiceRecorder.xcdatamodel; sourceTree = "<group>"; };
 		3DA2D97C220B71D400D8EA35 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3DA2D97F220B71D400D8EA35 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		3DA2D981220B71D400D8EA35 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -64,7 +62,6 @@
 				3DA2D97C220B71D400D8EA35 /* Assets.xcassets */,
 				3DA2D97E220B71D400D8EA35 /* LaunchScreen.storyboard */,
 				3DA2D981220B71D400D8EA35 /* Info.plist */,
-				3DA2D979220B71D300D8EA35 /* VoiceRecorder.xcdatamodeld */,
 				3DA2D987220B8FF600D8EA35 /* FileHelper.swift */,
 			);
 			path = VoiceRecorder;
@@ -143,7 +140,6 @@
 			files = (
 				3DA2D975220B71D300D8EA35 /* ViewController.swift in Sources */,
 				3DA2D973220B71D300D8EA35 /* AppDelegate.swift in Sources */,
-				3DA2D97B220B71D300D8EA35 /* VoiceRecorder.xcdatamodeld in Sources */,
 				3DA2D988220B8FF600D8EA35 /* FileHelper.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -344,19 +340,6 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCVersionGroup section */
-		3DA2D979220B71D300D8EA35 /* VoiceRecorder.xcdatamodeld */ = {
-			isa = XCVersionGroup;
-			children = (
-				3DA2D97A220B71D300D8EA35 /* VoiceRecorder.xcdatamodel */,
-			);
-			currentVersion = 3DA2D97A220B71D300D8EA35 /* VoiceRecorder.xcdatamodel */;
-			path = VoiceRecorder.xcdatamodeld;
-			sourceTree = "<group>";
-			versionGroupType = wrapper.xcdatamodel;
-		};
-/* End XCVersionGroup section */
 	};
 	rootObject = 3DA2D967220B71D200D8EA35 /* Project object */;
 }

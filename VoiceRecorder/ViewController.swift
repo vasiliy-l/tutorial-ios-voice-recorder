@@ -45,6 +45,7 @@ class ViewController: UIViewController {
         recordButton.setTitle("Tap to Record", for: .normal)
     }
     
+    
     @IBAction func recordButtonPressed(_ sender: UIButton) {
         if audioRecorder == nil {
             startRecording()
@@ -64,9 +65,6 @@ class ViewController: UIViewController {
     
     // MARK: - Recording
 
-    /**
-     Records audio to Application's Documents directory.
-    */
     func startRecording() {
         let audioFilename = FileHelper.getDocumentsDirectory().appendingPathComponent(FHRecordingName)
         
@@ -101,6 +99,9 @@ class ViewController: UIViewController {
             // recording failed :(
         }
     }
+    
+    
+    // MARK: - Playback
     
     func startPlayback() {
         let audioFilename = FileHelper.getDocumentsDirectory().appendingPathComponent(FHRecordingName)
