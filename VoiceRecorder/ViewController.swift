@@ -9,6 +9,11 @@
 import UIKit
 import AVFoundation
 
+func getDocumentsDirectory() -> URL {
+    let paths = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
+    return paths[0]
+}
+
 class ViewController: UIViewController {
 
     @IBOutlet var recordButton: UIButton!
@@ -66,7 +71,7 @@ class ViewController: UIViewController {
     // MARK: - Recording
 
     func startRecording() {
-        let audioFilename = FileHelper.getDocumentsDirectory().appendingPathComponent(FHRecordingName)
+        let audioFilename = getDocumentsDirectory().appendingPathComponent("recording.m4a")
         
         let settings = [
             AVFormatIDKey: Int(kAudioFormatMPEG4AAC),
@@ -92,9 +97,10 @@ class ViewController: UIViewController {
         
         if success {
             recordButton.setTitle("Tap to Re-record", for: .normal)
+            playButton.setTitle("Play Your Recording", for: .normal)
             playButton.isHidden = false
         } else {
-            recordButton.setTitle("Tap to record", for: .normal)
+            recordButton.setTitle("Tap to Record", for: .normal)
             playButton.isHidden = true
             // recording failed :(
         }
@@ -104,19 +110,16 @@ class ViewController: UIViewController {
     // MARK: - Playback
     
     func startPlayback() {
-        let audioFilename = FileHelper.getDocumentsDirectory().appendingPathComponent(FHRecordingName)
+        let audioFilename = getDocumentsDirectory().appendingPathComponent("recording.m4a")
         do {
             audioPlayer = try AVAudioPlayer(contentsOf: audioFilename)
             audioPlayer.delegate = self
             audioPlayer.play()
             playButton.setTitle("Stop Playback", for: .normal)
         } catch {
-            finishPlayback()
             playButton.isHidden = true
             // unable to play recording!
         }
-        
-        
     }
     
     func finishPlayback() {
@@ -143,4 +146,3 @@ extension ViewController: AVAudioPlayerDelegate {
     }
     
 }
-

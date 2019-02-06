@@ -19,10 +19,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Override point for customization after application launch.
         return true
     }
-
-    func applicationDidEnterBackground(_ application: UIApplication) {
-        let audioFilename = FileHelper.getDocumentsDirectory().appendingPathComponent(FHRecordingName)
-        let _ = FileHelper.deleteFile(audioFilename)
-    }
+    
 }
 
