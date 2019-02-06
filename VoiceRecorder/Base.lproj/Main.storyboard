@@ -25,15 +25,25 @@
                                     <action selector="recordButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="3zS-wf-6kS"/>
                                 </connections>
                             </button>
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ggG-p4-rIN">
+                                <rect key="frame" x="118.5" y="180" width="138" height="30"/>
+                                <state key="normal" title="Play Your Recording"/>
+                                <connections>
+                                    <action selector="playButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="QEV-4W-M6A"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="ggG-p4-rIN" firstAttribute="top" secondItem="RLq-MT-7Nv" secondAttribute="bottom" constant="40" id="Cus-7e-mko"/>
+                            <constraint firstItem="ggG-p4-rIN" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="j4U-Qs-gQg"/>
                             <constraint firstItem="RLq-MT-7Nv" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="r3V-tF-LGP"/>
                             <constraint firstItem="RLq-MT-7Nv" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="90" id="sB4-lL-4sY"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
+                        <outlet property="playButton" destination="ggG-p4-rIN" id="EDZ-Se-3db"/>
                         <outlet property="recordButton" destination="RLq-MT-7Nv" id="7nh-Wd-qcx"/>
                     </connections>
                 </viewController>

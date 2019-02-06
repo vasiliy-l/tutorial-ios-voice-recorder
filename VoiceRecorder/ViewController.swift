@@ -12,9 +12,11 @@ import AVFoundation
 class ViewController: UIViewController {
 
     @IBOutlet var recordButton: UIButton!
+    @IBOutlet var playButton: UIButton!
     
     var recordingSession: AVAudioSession!
     var audioRecorder: AVAudioRecorder!
+    var audioPlayer: AVAudioPlayer!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -51,12 +53,22 @@ class ViewController: UIViewController {
         }
     }
     
+    @IBAction func playButtonPressed(_ sender: UIButton) {
+        if audioPlayer == nil {
+            startPlayback()
+        } else {
+            finishPlayback()
+        }
+    }
     
     
     // MARK: - Recording
 
+    /**
+     Records audio to Application's Documents directory.
+    */
     func startRecording() {
-        let audioFilename = getDocumentsDirectory().appendingPathComponent("recording.m4a")
+        let audioFilename = FileHelper.getDocumentsDirectory().appendingPathComponent(FHRecordingName)
         
         let settings = [
             AVFormatIDKey: Int(kAudioFormatMPEG4AAC),
@@ -82,27 +94,52 @@ class ViewController: UIViewController {
         
         if success {
             recordButton.setTitle("Tap to Re-record", for: .normal)
+            playButton.isHidden = false
         } else {
             recordButton.setTitle("Tap to record", for: .normal)
+            playButton.isHidden = true
             // recording failed :(
         }
     }
     
+    func startPlayback() {
+        let audioFilename = FileHelper.getDocumentsDirectory().appendingPathComponent(FHRecordingName)
+        do {
+            audioPlayer = try AVAudioPlayer(contentsOf: audioFilename)
+            audioPlayer.delegate = self
+            audioPlayer.play()
+            playButton.setTitle("Stop Playback", for: .normal)
+        } catch {
+            finishPlayback()
+            playButton.isHidden = true
+            // unable to play recording!
+        }
+        
+        
+    }
     
-    // MARK: - Helpers
-    
-    func getDocumentsDirectory() -> URL {
-        let paths = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
-        return paths[0]
+    func finishPlayback() {
+        audioPlayer = nil
+        playButton.setTitle("Play Your Recording", for: .normal)
     }
 
 }
 
 extension ViewController: AVAudioRecorderDelegate {
+    
     func audioRecorderDidFinishRecording(_ recorder: AVAudioRecorder, successfully flag: Bool) {
         if !flag {
             finishRecording(success: false)
         }
     }
+    
+}
+
+extension ViewController: AVAudioPlayerDelegate {
+    
+    func audioPlayerDidFinishPlaying(_ player: AVAudioPlayer, successfully flag: Bool) {
+        finishPlayback()
+    }
+    
 }
 
